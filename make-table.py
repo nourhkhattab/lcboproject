@@ -63,27 +63,15 @@ print(len(master))
 print(i)
 print(j)
 
-#html = "---\nlayout: default\n---\n\nvar values = [\n"
-#desc = ['name','vol','price','alc','volAlc','alPD','type','cat1','cat2']
-#for key, value in master.items():
-#    i = 0
-#    html += '\t{ num : \'' + str(key) + '\''
-#    for v in value:
-#        html += ', ' + desc[i] + ': \'' + str(v) + '\''
-#        i += 1
-#    html += ' },\n'
-#
-#html = html[:-2]
-
-html = '{ "aaData": [\n'
-
+html = '---\nlayout: default\n---\n\n\t\t var aDataSet = [\n'
 for key, value in master.items():
-    html += '\t["' + str(key) + '"'
+    html += '\t\t\t[\'' + str(key) + '\''
     for v in value:
-        html += ',"' + str(v) + '"'
+        html += ', \'' + str(v) + '\''
     html += '],\n'
-html = html[:-2]
-html += '\n] }'
 
-f = open('json_data.txt', 'w')
+html = html[:-2]
+html += '];'
+
+f = open('index.html', 'w')
 f.write(html)

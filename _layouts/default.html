@@ -19,10 +19,33 @@ src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script
 src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+
+    {{ content }}
+	    $(document).ready(function() {
+		$('#dynamic').html( '<table class="display table table-bordered" id="example"></table>' );
+		$('#example').dataTable( {
+		    "aaData": aDataSet,
+		    "aoColumns": [
+			{ "sTitle": "Product Number" },
+			{ "sTitle": "Product Name" },
+			{ "sTitle": "Volume(ml)" },
+			{ "sTitle": "Price" },
+			{ "sTitle": "Alcohol %" },
+			{ "sTitle": "Volume of Alcohol (mL)" },
+			{ "sTitle": "Volume of Alcohol per dollar (mL/$)" },
+			{ "sTitle": "Type" },
+			{ "sTitle": "Category 1" },
+			{ "sTitle": "Category 2", "sClass": "center" },
+		    ]
+		} );	
+	    } );
+    </script>  
   </head>
   <body>
     <h1>Full Site Coming Soon</h1>
     <p>Till then here is the data in a not nice format</p>
+    <div class = "dynamic"></div>
 
     <table class="table table-bordered">
 	<thead>
@@ -43,9 +66,6 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 	</tbody>
     </table>
-<p> 
-{{ content }}
-</p>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script
 src="bower_components.jquery/dist/jquery.min.js"></script>
