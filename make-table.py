@@ -63,14 +63,17 @@ print(len(master))
 print(i)
 print(j)
 
-html = ""
-
+html = "var values = [\n"
+desc = ['name','vol','price','alc','volAlc','alPD','type','cat1','cat2']
 for key, value in master.items():
-    html += '<tr>\n'
-    html += '\t<th>' + str(key) + '</th>\n'
+    i = 0
+    html += '\t{ num : \'' + str(key) + '\''
     for v in value:
-        html += '\t<th>' + str(v) + '</th>\n'
-    html += '</tr>\n'
+        html += ', ' + desc[i] + ': \'' + str(v) + '\''
+        i += 1
+    html += ' },\n'
 
-f = open('htmlout', 'w')
+html = html[:-2]
+
+f = open('htmlout.html', 'w')
 f.write(html)
