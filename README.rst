@@ -6,7 +6,7 @@ This is a scraper that finds all drinks on the lcbo website and stores it along 
 
 Todo
 =======
-* add links
+* add filters for categories
 * find bugs
 * find a way to update regularly
 * add beer store and wine rack
