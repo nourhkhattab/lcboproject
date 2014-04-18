@@ -26,34 +26,36 @@ for c in data:
 
     s = re.sub('<[^<]+>','', s).strip()
     
-    if re.search('Accessories and Non-Alcohol Items', s) != None:
+    if re.findall('Accessories and Non-Alcohol Items', s) != None:
         continue
 
-    m = re.search('^.*(?= \w* \d*[|])', s)
-    name = cgi.escape(m.group(0))
+    m = re.findall('^.*(?= \w* \d*[|])', s)
+    name = m[0]
     
-    m = re.search('\d*(?=[|])', s)
-    number = cgi.escape(m.group(0))
+    m = re.findall('\d*(?=[|])', s)
+    number = m[0]
     
-    m = re.search('((\d*x\d*)|(\d*))(?= mL)', s)
-    volumeR = cgi.escape(m.group(0))
+    m = re.findall('((\d*x\d*)|(\d*))(?= mL)', s)
+    volumeR = m[0]
     if "x" in volumeR:
         volumeR = int(volumeR.split("x")[0]) * int (volumeR.split("x")[1])
 
-    m = re.search('[\d\.]*(?=[%])', s)
-    percentage = cgi.escape(m.group(0))
+    m = re.findall('[\d\.]*(?=[%])', s)
+    percentage = m[0]
+    if (percentage + '%') in name:
+        percentage = m[1]
 
-    m = re.search('(?<=\$ )[\d\.]*', s)
-    price = cgi.escape(m.group(0))
+    m = re.findall('(?<=\$ )[\d\.]*', s)
+    price = m[0]
 
-    m = re.search('(Wine|Spirits|Beer|Coolers and Cocktails|Cider)', s)
-    cat1 = cgi.escape(m.group(0))
+    m = re.findall('(Wine|Spirits|Beer|Coolers and Cocktails|Cider)', s)
+    cat1 = m[0]
 
-    m = re.search('(Ale|Bags \& Boxes|Bar Accessories|Brandy|Champagne|Cider|Cognac \/ Armagnac|Coolers|Dessert Wine|Eau\-de\-Vie|Fortified Wines|Gift and SamplerPacks|Gin|Hybrid|Icewine|Lager|Liqueur\/Liquor|One Pour Cocktails|Product Knowledge Videos|Red Wine|Ros[é] Wine|Rum|Shochu \/ Soju|SparklingWine|Specialty|Specialty Wines|Tequila|Vessels|Vodka|Whisky\/Whiskey|White Wine| )', s)
-    cat2 = cgi.escape(m.group(0))
+    m = re.findall('(Ale|Bags \& Boxes|Bar Accessories|Brandy|Champagne|Cider|Cognac \/ Armagnac|Coolers|Dessert Wine|Eau\-de\-Vie|Fortified Wines|Gift and SamplerPacks|Gin|Hybrid|Icewine|Lager|Liqueur\/Liquor|One Pour Cocktails|Product Knowledge Videos|Red Wine|Ros[é] Wine|Rum|Shochu \/ Soju|SparklingWine|Specialty|Specialty Wines|Tequila|Vessels|Vodka|Whisky\/Whiskey|White Wine| )', s)
+    cat2 = m[0]
 
-    m = re.search('(Altbier|Amber|Aniseed|Belgian Ale|Berry|Bitter|Bitters \/ Herbs|Blanco|Bock|Bourbon \/ American Whiskey|Cachaca|Canadian Whisky|Chocolate|Citrus|Classic|Coffee|Cream|Cream Ale|Creamy|Dark|Dark Lager|Dark\/Brown Ale|Dessert|European Fortified|Flavoured|Flavoured Ale|Flavoured Cider|Flavoured Vodka|Flavoured Wine|Floral|Fruit Flavoured|Fruit Spirit|Fruit Wine|Fruity|Gluten Free Beer|Grappa / Grape Spirit|India Pale Ale [(]IPA[)]|International Whiskey|Irish Whiskey|Kolsch|Madeira \/ Marsala|Mead|Mezcal|Mint|Mixed|Mixto|New World Fortified|Nut|Pale Ale|Pale Lager|Party Packs|Port|Porter|Red|Reposado|Ros[é] / Red|Ros[é]|Sake \/ Rice Wine|Scotch Single Malts|Scotch Whisky Blends|Sherry|Sotal|Sour|Sparkling|Spice|Spiced|Spicy|Steam Beer|Stout|Strong Ale|Sweet Flavours|Traditional Cider|Tropical|Unique Selections|VS|VSOP|Vermouth\/ Aperitif|Wheat|White|XO| )', s)
-    cat3 = cgi.escape(m.group(0))
+    m = re.findall('(Altbier|Amber|Aniseed|Belgian Ale|Berry|Bitter|Bitters \/ Herbs|Blanco|Bock|Bourbon \/ American Whiskey|Cachaca|Canadian Whisky|Chocolate|Citrus|Classic|Coffee|Cream|Cream Ale|Creamy|Dark|Dark Lager|Dark\/Brown Ale|Dessert|European Fortified|Flavoured|Flavoured Ale|Flavoured Cider|Flavoured Vodka|Flavoured Wine|Floral|Fruit Flavoured|Fruit Spirit|Fruit Wine|Fruity|Gluten Free Beer|Grappa / Grape Spirit|India Pale Ale [(]IPA[)]|International Whiskey|Irish Whiskey|Kolsch|Madeira \/ Marsala|Mead|Mezcal|Mint|Mixed|Mixto|New World Fortified|Nut|Pale Ale|Pale Lager|Party Packs|Port|Porter|Red|Reposado|Ros[é] / Red|Ros[é]|Sake \/ Rice Wine|Scotch Single Malts|Scotch Whisky Blends|Sherry|Sotal|Sour|Sparkling|Spice|Spiced|Spicy|Steam Beer|Stout|Strong Ale|Sweet Flavours|Traditional Cider|Tropical|Unique Selections|VS|VSOP|Vermouth\/ Aperitif|Wheat|White|XO| )', s)
+    cat3 = m[0]
     
     apml = (float(percentage) * int(volumeR))/100
     apd = apml/float(price)
