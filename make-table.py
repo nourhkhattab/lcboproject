@@ -42,6 +42,8 @@ for c in data:
 
     m = re.search('[\d\.]*(?=[%])', s)
     percentage = cgi.escape(m.group(0))
+    if percentage + '%' in name:
+        percentag = re.findall('[\d\.]*(?=[%])', s)[2]
 
     m = re.search('(?<=\$ )[\d\.]*', s)
     price = cgi.escape(m.group(0))
