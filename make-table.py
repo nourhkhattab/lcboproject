@@ -63,7 +63,7 @@ print(len(master))
 print(i)
 print(j)
 
-html = "var values = [\n"
+html = "---\nlayout: default\n---\n\nvar values = [\n"
 desc = ['name','vol','price','alc','volAlc','alPD','type','cat1','cat2']
 for key, value in master.items():
     i = 0
@@ -75,5 +75,5 @@ for key, value in master.items():
 
 html = html[:-2]
 
-f = open('htmlout.html', 'w')
+f = open('index.html', 'w')
 f.write(html)
