@@ -26,7 +26,7 @@ for c in data:
 
     s = re.sub('<[^<]+>','', s).strip()
     
-    if re.search('Accessories and Non-Alcohol Items', s) != None:
+    if re.search('PRODUCT DISCONTINUED', s) != None or re.search('Accessories and Non-Alcohol Items', s) != None:
         continue
 
     m = re.search('^.*(?= \w* \d*[|])', s)
