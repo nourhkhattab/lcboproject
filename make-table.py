@@ -65,14 +65,13 @@ print(j)
 
 html = '---\nlayout: default\n---\n\n\t\t var aDataSet = [\n'
 for key, value in master.items():
-    html += '\t\t\t[\'' + str(key) + '\''
+    html += '\t\t\t[\'' + str(key).replace('\'','\\\'') + '\''
     for v in value:
-        html += ', \'' + str(v) + '\''
+        html += ', \'' + str(v).replace('\'','\\\'') + '\''
     html += '],\n'
 
 html = html[:-2]
 html += '];'
-html= html.replace('\'','\\\'')
 
 f = open('index.html', 'w')
 f.write(html)
