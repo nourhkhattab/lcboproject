@@ -67,7 +67,7 @@ print(j)
 
 html = '---\nlayout: default\n---\n\n\t\t var aDataSet = [\n'
 for key, value in master.items():
-    html += '\t\t\t[\'' + str(key).replace('\'','\\\'') + '\''
+    html += '\t\t\t[\'' +'<a href="http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '">' + str(key).replace('\'','\\\'') + '</a>\''
     for v in value:
         html += ', \'' + str(v).replace('\'','\\\'') + '\''
     html += '],\n'
