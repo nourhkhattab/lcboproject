@@ -26,10 +26,10 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     {{ content }}
 
 
-
+	    var asInitVals =[];
 	    $(document).ready(function() {
 		$('#dynamic').html( '<table class="display table table-bordered" id="example"></table>' );
-		$('#example').dataTable( {
+		var oTable = $('#example').dataTable( {
 		    "aaData": aDataSet,
 		    "aoColumns": [
 			{ "sTitle": "Product Number" },
@@ -42,8 +42,41 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			{ "sTitle": "Type" },
 			{ "sTitle": "Category 1" },
 			{ "sTitle": "Category 2", "sClass": "center" },
-		    ]
-		} );	
+		    ],
+		    "oLanguage": {
+		    "sSearch": "Search all columns:"
+		    }
+		} );
+	$("thead input").keyup( function () {
+	/* Filter on the column (the index) of this element */
+	oTable.fnFilter( this.value, $("thead input").index(this) );
+    } );
+    
+    
+    
+    /*
+     * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
+     * the footer
+     */
+    $("thead input").each( function (i) {
+	asInitVals[i] = this.value;
+    } );
+    
+    $("thead input").focus( function () {
+	if ( this.className == "search_init" )
+	{
+	    this.className = "";
+	    this.value = "";
+	}
+    } );
+    
+    $("thead input").blur( function (i) {
+	if ( this.value === "" )
+	{
+	    this.className = "search_init";
+	    this.value = asInitVals[$("thead input").index(this)];
+	}
+    } );		
 	    } );
     </script>  
   </head>
