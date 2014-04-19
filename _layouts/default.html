@@ -43,19 +43,30 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			{ "sTitle": "Category 1" },
 			{ "sTitle": "Category 2", "sClass": "center" },
 		    ]
-		} ).yadcf([{
-        column_number: 0
-    }, {
+		} ).yadcf([{{
         column_number: 1,
         filter_type: "text"
     }, {
         column_number: 2,
-        filter_type: "auto_complete"
+        filter_type: "range_number"
     }, {
         column_number: 3,
-        filter_type: "range_number_slider"
+        filter_type: "range_number"
     }, {
-        column_number: 4
+        column_number: 4,
+        filter_type: "range_number"
+    }, {
+        column_number: 5,
+        filter_type: "range_number"
+    }, {
+        column_number: 6,
+        filter_type: "range_number"
+    }, {
+        column_number: 7,
+    }, {
+        column_number: 8,
+    }, {
+        column_number: 9
     }]);
 	    } );
     </script>  
@@ -64,18 +75,6 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <div class = "container">
     <h1>LCBO Project</h1>
     <p>To sort by multiple columns, hold down shift when clicking those columns</p>
-    <div class = "sort">
-	<p id="1">1</p>
-	<p id="2">2</p>
-	<p id="3">3</p>
-	<p id="4">4</p>
-	<p id="5">5</p>
-	<p id="6">6</p>
-	<p id="7">7</p>
-	<p id="8">8</p>
-	<p id="9">9</p>
-	<p id="10">10</p>
-    </div>
     <div id = "dynamic"></div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
