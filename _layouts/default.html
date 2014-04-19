@@ -31,9 +31,8 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		var oTable = $('#example').dataTable( {
 		    "aaData": aDataSet,
 		    "aoColumns": [
-		         { "bSearchable": false },
-			{ "sTitle": "Product Number" },
-			{ "sTitle": "Product Name" },
+			{ "sTitle": "Product Number", "bSearchable": false },
+			{ "sTitle": "Product Name", "bSearchable": true },
 			{ "sTitle": "Volume(ml)" },
 			{ "sTitle": "Price" },
 			{ "sTitle": "Alcohol %" },
