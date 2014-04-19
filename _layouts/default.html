@@ -28,7 +28,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
         var asInitVals =[];
         $(document).ready(function() {
-	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
+	$('#dynamic').html( '<div class="table-responsive"><table class="table table-bordered" id="example"></table></div>' );
 	$('#example').dataTable( {
 	    "aaData": aDataSet,
 	    "aoColumns": [
@@ -84,7 +84,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
     <div class="row"></div>
 
-    <div id = "dynamic" class="table-responsive"></div>
+    <div id = "dynamic"></div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as
