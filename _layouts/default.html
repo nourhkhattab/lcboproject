@@ -27,7 +27,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 	    var asInitVals =[];
 	    $(document).ready(function() {
-		$('#dynamic').html( '<thead><tr><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th><th><input type="text" name="search_" value="Search" class="search_init"></th></tr></thead><table class="display table table-bordered" id="example"></table>' );
+		$('#dynamic').html( '<input type="text" name="search_" value="Search" class="search_init"></th></tr></thead><table class="display table table-bordered" id="example"></table>' );
 		var oTable = $('#example').dataTable( {
 		    "aaData": aDataSet,
 		    "aoColumns": [
@@ -83,6 +83,9 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <div class = "container">
     <h1>LCBO Project</h1>
     <p>To sort by multiple columns, hold down shift when clicking those columns</p>
+    <table>
+    <th><input type="text" name="search_" value="Search" class="search_init"></th>
+    </table>
     <div id = "dynamic"></div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
