@@ -11,7 +11,7 @@
     <link href="bower_components/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="http://jquery-datatables-column-filter.googlecode.com/svn/trunk/media/js/jquery.dataTables.columnFilter.js"></script>
+    <script src="http://yadcf-showcase.appspot.com/resources/js/jquery.dataTables.yadcf.js"></script>
     <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
          queries -->
@@ -43,18 +43,20 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			{ "sTitle": "Category 1" },
 			{ "sTitle": "Category 2", "sClass": "center" },
 		    ]
-		} ).columnFilter({aoColumns:[
-		{ sSelector: "#1"},
-		{ sSelector: "#2"},
-		{ sSelector: "#3", type:"number-range"},
-		{ sSelector: "#4", type:"number-range"},
-		{ sSelector: "#5", type:"number-range"},
-		{ sSelector: "#6", type:"number-range"},
-		{ sSelector: "#7", type:"number-range"},
-		{ sSelector: "#8", type:"select"},
-		{ sSelector: "#9", type:"select"},
-		{ sSelector: "#10", type:"select"}
-		]});
+		} ).yadcf([{
+        column_number: 0
+    }, {
+        column_number: 1,
+        filter_type: "text"
+    }, {
+        column_number: 2,
+        filter_type: "auto_complete"
+    }, {
+        column_number: 3,
+        filter_type: "range_number_slider"
+    }, {
+        column_number: 4
+    }]);
 	    } );
     </script>  
   </head>
