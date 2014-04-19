@@ -44,7 +44,18 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			{ "sTitle": "Category 2", "sClass": "center" },
 		    ]
 		} );
-		$('#example').dataTable().columnFilter();
+		$('#example').dataTable().columnFilter({aoColumns:[
+		{ sSelector: "#1"},
+		{ sSelector: "#2"},
+		{ sSelector: "#3", type:"number-range"},
+		{ sSelector: "#4", type:"number-range"},
+		{ sSelector: "#5", type:"number-range"},
+		{ sSelector: "#6", type:"number-range"},
+		{ sSelector: "#7", type:"number-range"},
+		{ sSelector: "#8", type:"select"},
+		{ sSelector: "#9", type:"select"},
+		{ sSelector: "#10", type:"select"}
+		]});
 	    } );
     </script>  
   </head>
@@ -52,6 +63,18 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <div class = "container">
     <h1>LCBO Project</h1>
     <p>To sort by multiple columns, hold down shift when clicking those columns</p>
+    <div class = "sort">
+	<p id="1">1</p>
+	<p id="2">2</p>
+	<p id="3">3</p>
+	<p id="4">4</p>
+	<p id="5">5</p>
+	<p id="6">6</p>
+	<p id="7">7</p>
+	<p id="8">8</p>
+	<p id="9">9</p>
+	<p id="10">10</p>
+    </div>
     <div id = "dynamic"></div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
