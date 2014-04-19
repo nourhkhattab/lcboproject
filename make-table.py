@@ -51,12 +51,18 @@ for c in data:
     m = re.search('(Wine|Spirits|Beer|Coolers and Cocktails|Cider)', s)
     cat1 = cgi.escape(m.group(0))
 
-    m = re.search('(Ale|Bags \& Boxes|Bar Accessories|Brandy|Champagne|Cider|Cognac \/ Armagnac|Coolers|Dessert Wine|Eau\-de\-Vie|Fortified Wines|Gift and SamplerPacks|Gin|Hybrid|Icewine|Lager|Liqueur\/Liquor|One Pour Cocktails|Product Knowledge Videos|Red Wine|Ros[é] Wine|Rum|Shochu \/ Soju|SparklingWine|Specialty|Specialty Wines|Tequila|Vessels|Vodka|Whisky\/Whiskey|White Wine| )', s)
-    cat2 = cgi.escape(m.group(0))
+    m = re.search('(Ale|Bags \& Boxes|Bar Accessories|Brandy|Champagne|Cider|Cognac \/ Armagnac|Coolers|Dessert Wine|Eau\-de\-Vie|Fortified Wines|Gift and SamplerPacks|Gin|Hybrid|Icewine|Lager|Liqueur\/Liquor|One Pour Cocktails|Product Knowledge Videos|Red Wine|Ros[é] Wine|Rum|Shochu \/ Soju|SparklingWine|Specialty|Specialty Wines|Tequila|Vessels|Vodka|Whisky\/Whiskey|White Wine)', s)
+    if m:
+        cat2 = cgi.escape(m.group(0))
+    else:
+        cat2 = 'N/A'
 
-    m = re.search('(Altbier|Amber|Aniseed|Belgian Ale|Berry|Bitter|Bitters \/ Herbs|Blanco|Bock|Bourbon \/ American Whiskey|Cachaca|Canadian Whisky|Chocolate|Citrus|Classic|Coffee|Cream|Cream Ale|Creamy|Dark|Dark Lager|Dark\/Brown Ale|Dessert|European Fortified|Flavoured|Flavoured Ale|Flavoured Cider|Flavoured Vodka|Flavoured Wine|Floral|Fruit Flavoured|Fruit Spirit|Fruit Wine|Fruity|Gluten Free Beer|Grappa / Grape Spirit|India Pale Ale [(]IPA[)]|International Whiskey|Irish Whiskey|Kolsch|Madeira \/ Marsala|Mead|Mezcal|Mint|Mixed|Mixto|New World Fortified|Nut|Pale Ale|Pale Lager|Party Packs|Port|Porter|Red|Reposado|Ros[é] / Red|Ros[é]|Sake \/ Rice Wine|Scotch Single Malts|Scotch Whisky Blends|Sherry|Sotal|Sour|Sparkling|Spice|Spiced|Spicy|Steam Beer|Stout|Strong Ale|Sweet Flavours|Traditional Cider|Tropical|Unique Selections|VS|VSOP|Vermouth\/ Aperitif|Wheat|White|XO| )', s)
-    cat3 = cgi.escape(m.group(0))
-    
+    m = re.search('(Altbier|Amber|Aniseed|Belgian Ale|Berry|Bitter|Bitters \/ Herbs|Blanco|Bock|Bourbon \/ American Whiskey|Cachaca|Canadian Whisky|Chocolate|Citrus|Classic|Coffee|Cream|Cream Ale|Creamy|Dark|Dark Lager|Dark\/Brown Ale|Dessert|European Fortified|Flavoured|Flavoured Ale|Flavoured Cider|Flavoured Vodka|Flavoured Wine|Floral|Fruit Flavoured|Fruit Spirit|Fruit Wine|Fruity|Gluten Free Beer|Grappa / Grape Spirit|India Pale Ale [(]IPA[)]|International Whiskey|Irish Whiskey|Kolsch|Madeira \/ Marsala|Mead|Mezcal|Mint|Mixed|Mixto|New World Fortified|Nut|Pale Ale|Pale Lager|Party Packs|Port|Porter|Red|Reposado|Ros[é] / Red|Ros[é]|Sake \/ Rice Wine|Scotch Single Malts|Scotch Whisky Blends|Sherry|Sotal|Sour|Sparkling|Spice|Spiced|Spicy|Steam Beer|Stout|Strong Ale|Sweet Flavours|Traditional Cider|Tropical|Unique Selections|VS|VSOP|Vermouth\/ Aperitif|Wheat|White|XO)', s)
+    if m:
+        cat3 = cgi.escape(m.group(0))
+    else:
+        cat3 = 'N/A'
+
     apml = (float(percentage) * int(volumeR))/100
     apd = apml/float(price)
     master[number] = [name, int(volumeR), float(price), float(percentage), apml, apd, cat1, cat2, cat3]
