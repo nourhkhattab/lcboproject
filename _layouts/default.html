@@ -27,10 +27,11 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 	    var asInitVals =[];
 	    $(document).ready(function() {
-		$('#dynamic').html( '<input type="text" name="search_" value="Search" class="search_init"></th></tr></thead><table class="display table table-bordered" id="example"></table>' );
+		$('#dynamic').html( '<table class="display table table-bordered" id="example"></table>' );
 		var oTable = $('#example').dataTable( {
 		    "aaData": aDataSet,
 		    "aoColumns": [
+		         { "bSearchable": false },
 			{ "sTitle": "Product Number" },
 			{ "sTitle": "Product Name" },
 			{ "sTitle": "Volume(ml)" },
@@ -41,10 +42,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			{ "sTitle": "Type" },
 			{ "sTitle": "Category 1" },
 			{ "sTitle": "Category 2", "sClass": "center" },
-		    ],
-		    "oLanguage": {
-		    "sSearch": "Search all columns:"
-		    }
+		    ]
 		} );
 	$("thead input").keyup( function () {
 	/* Filter on the column (the index) of this element */
@@ -83,9 +81,6 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <div class = "container">
     <h1>LCBO Project</h1>
     <p>To sort by multiple columns, hold down shift when clicking those columns</p>
-    <table>
-    <th><input type="text" name="search_" value="Search" class="search_init"></th>
-    </table>
     <div id = "dynamic"></div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
