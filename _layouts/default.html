@@ -77,6 +77,21 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    this.value = asInitVals[$("thead input").index(this)];
 	}
     } );		
+    function fnCreateSelect( aData )
+{
+    var r='<select><option value=""></option>', i, iLen=aData.length;
+    for ( i=0 ; i<iLen ; i++ )
+    {
+        r += '<option value="'+aData[i]+'">'+aData[i]+'</option>';
+    }
+    return r+'</select>';
+}
+$("thead th").each( function ( i ) {
+        this.innerHTML = fnCreateSelect( oTable.fnGetColumnData(i) );
+        $('select', this).change( function () {
+            oTable.fnFilter( $(this).val(), i );
+        } );
+    } );
 	    } );
     </script>  
   </head>
