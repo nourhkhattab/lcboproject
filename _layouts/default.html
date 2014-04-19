@@ -29,7 +29,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    var asInitVals =[];
 	    $(document).ready(function() {
 		$('#dynamic').html( '<table class="display table table-bordered" id="example"></table>' );
-		var oTable = $('#example').dataTable( {
+		$('#example').dataTable( {
 		    "aaData": aDataSet,
 		    "aoColumns": [
 			{ "sTitle": "Product Number", "bSearchable": false },
@@ -43,8 +43,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			{ "sTitle": "Category 1" },
 			{ "sTitle": "Category 2", "sClass": "center" },
 		    ]
-		} );
-		$('#example').dataTable().columnFilter({aoColumns:[
+		} ).dataTable().columnFilter({aoColumns:[
 		{ sSelector: "#1"},
 		{ sSelector: "#2"},
 		{ sSelector: "#3", type:"number-range"},
