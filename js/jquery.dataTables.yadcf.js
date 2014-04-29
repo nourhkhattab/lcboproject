@@ -1208,7 +1208,7 @@ var yadcf = (function ($) {
 					$(filter_selector_string).append("<select multiple data-placeholder=\"" + filter_default_label + "\" id=\"yadcf-filter-" + table_selector_jq_friendly + "-" + column_number + "\" class=\"yadcf-filter\" " +
 						"onchange=\"yadcf.doFilterMultiSelect(this, '" + table_selector_jq_friendly + "', " + column_number + ", '" + filter_match_mode + "')\" onclick='yadcf.stopPropagation(event);'>" + options + "</select>");
 					$(filter_selector_string).find(".yadcf-filter").after("<input value=\"" + filter_reset_button_text + "\" type=\"button\" " +
-						"onclick=\"yadcf.stopPropagation(event);yadcf.doFilter('clear', '" + table_selector_jq_friendly + "', " + column_number + "); return false;\" class=\"yadcf-filter-reset-button\">");
+						"onclick=\"$(\'.sel"+ filter_container_id.charAt(1) +"\').selectpicker('val', 'Select value'); yadcf.stopPropagation(event);yadcf.doFilter('clear', '" + table_selector_jq_friendly + "', " + column_number + "); return false;\" class=\"yadcf-filter-reset-button\">");
 
 					if (oTable.fnSettings().oFeatures.bStateSave === true && oTable.fnSettings().aoPreSearchCols[column_number].sSearch) {
 						tmpStr = oTable.fnSettings().aoPreSearchCols[column_number].sSearch;
@@ -1235,7 +1235,7 @@ var yadcf = (function ($) {
 
 					if (filter_reset_button_text !== false) {
 						$(filter_selector_string).find(".yadcf-filter").after("<input value=\"" + filter_reset_button_text + "\" type=\"button\" " +
-							"onclick=\"yadcf.stopPropagation(event);yadcf.doFilterAutocomplete('clear', '" + table_selector_jq_friendly + "', " + column_number + "); return false;\" class=\"yadcf-filter-reset-button\">");
+							"onclick=\"$(\'.sel"+ filter_container_id.charAt(1) +"\').selectpicker('val', 'Select value'); yadcf.stopPropagation(event);yadcf.doFilterAutocomplete('clear', '" + table_selector_jq_friendly + "', " + column_number + "); return false;\" class=\"yadcf-filter-reset-button\">");
 					}
 
 				} else if (args[i].filter_type === "text") {
@@ -1249,7 +1249,7 @@ var yadcf = (function ($) {
 
 					if (filter_reset_button_text !== false) {
 						$(filter_selector_string).find(".yadcf-filter").after("<input value=\"" + filter_reset_button_text + "\" type=\"button\" " + " id=\"yadcf-filter-" + table_selector_jq_friendly + "-" + column_number + "-reset\"" +
-							"onclick=\"yadcf.stopPropagation(event);yadcf.textKeyUP('" + table_selector_jq_friendly + "', event, 'clear'); return false;\" class=\"yadcf-filter-reset-button\">");
+							"onclick=\"$(\'.sel"+ filter_container_id.charAt(1) +"\').selectpicker('val', 'Select value'); yadcf.stopPropagation(event);yadcf.textKeyUP('" + table_selector_jq_friendly + "', event, 'clear'); return false;\" class=\"yadcf-filter-reset-button\">");
 					}
 
 					if (oTable.fnSettings().oFeatures.bStateSave === true && oTable.fnSettings().aoPreSearchCols[column_number].sSearch) {
