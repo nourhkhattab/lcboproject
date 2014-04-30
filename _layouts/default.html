@@ -31,9 +31,10 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
         var asInitVals =[];
         $(document).ready(function() {
-	$('#dynamic').html( '<div class="table-responsive"><table class="table table-bordered" id="example"></table></div>' );
+	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
 	$('#example').dataTable( {
 	    "aaData": aDataSet,
+	    "sDom": '<"row" fl><"table-responsive" rt><"row" ip>',
 	    "aoColumns": [
 	    { "sTitle": "Product Number", "bSearchable": false },
 	    { "sTitle": "Product Name", "bSearchable": true },
@@ -47,11 +48,11 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    { "sTitle": "Category 2", "sClass": "center" },
 	    ]
 	} ).yadcf([{
-        column_number: 7, filter_container_id : "f1"
+        column_number: 7, filter_container_id : "f1", filter_type:"multi_select"
     }, {
-        column_number: 8, filter_container_id : "f2"
+        column_number: 8, filter_container_id : "f2", filter_type:"multi_select"
     }, {
-        column_number: 9, filter_container_id : "f3"
+        column_number: 9, filter_container_id : "f3", filter_type:"multi_select"
     }]);
 	var d = document.getElementById("yadcf-filter--example-7");
 	d.className = d.className + " sel1";
@@ -68,7 +69,9 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <body>
   <div class = "container">
     <h1>LCBO Project</h1>
+    <br /> <!-- Bad style, Find alternative -->
     <p>To sort by multiple columns, hold down shift when clicking those columns</p> 
+    <p>To filter by multiple categories, just click another after clicking the first one</p>
     <div class = "col-md-4">
 	<div class="row">
 	    <h3>Type</h3>
