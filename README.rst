@@ -10,3 +10,5 @@ Todo
 * find bugs
 * find a way to update regularly
 * add beer store and wine rack
+* provide support for updating
+

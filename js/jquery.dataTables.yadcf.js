@@ -1217,7 +1217,7 @@ var yadcf = (function ($) {
 						$('#yadcf-filter-' + table_selector_jq_friendly + '-' + column_number).val(tmpStr);
 					}
 
-					args[i].select_type_options = $.extend({}, {width: $(filter_selector_string).closest("th").width() + "px"}, args[i].select_type_options);
+				//	args[i].select_type_options = $.extend({}, {width: $(filter_selector_string).closest("th").width() + "px"}, args[i].select_type_options);
 					if (args[i].select_type !== undefined && args[i].select_type === 'chosen') {
 						$("#yadcf-filter-" + table_selector_jq_friendly + "-" + column_number).chosen(args[i].select_type_options);
 						$("#yadcf-filter-" + table_selector_jq_friendly + "-" + column_number).next().attr("onclick", "yadcf.stopPropagation(event);");

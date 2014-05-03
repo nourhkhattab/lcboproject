@@ -8,12 +8,13 @@
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/datatables/media/css/jquery.dataTables.css" rel="stylesheet">
     <link href="bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
 
-    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/jquery.dataTables.yadcf.js"></script>
     <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <script src="bower_components/bootstrap-select/bootstrap-select.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
@@ -34,18 +35,18 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
 	$('#example').dataTable( {
 	    "aaData": aDataSet,
-	    "sDom": '<"row" fl><"table-responsive" rt><"row" ip>',
+	    "bAutoWidth":false,
 	    "aoColumns": [
-	    { "sTitle": "Product Number", "bSearchable": false },
-	    { "sTitle": "Product Name", "bSearchable": true },
-	    { "sTitle": "Volume(ml)" },
+	    { "sTitle": "#", "bSearchable": false  },
+	    { "sTitle": "Name", "bSearchable": true },
+	    { "sTitle": "Vol (mL)"},
 	    { "sTitle": "Price" },
-	    { "sTitle": "Alcohol %" },
-	    { "sTitle": "Volume of Alcohol (mL)" },
-	    { "sTitle": "Volume of Alcohol per dollar (mL/$)" },
+	    { "sTitle": "Alc %" },
+	    { "sTitle": "Vol of Pure Alc (mL)" },
+	    { "sTitle": "Vol of Pure Alc per Dollar (mL/$)"},
 	    { "sTitle": "Type" },
-	    { "sTitle": "Category 1" },
-	    { "sTitle": "Category 2", "sClass": "center" },
+	    { "sTitle": "Cat1"},
+	    { "sTitle": "Cat2"},
 	    ]
 	} ).yadcf([{
         column_number: 7, filter_container_id : "f1", filter_type:"multi_select"
