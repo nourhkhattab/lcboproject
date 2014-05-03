@@ -1,4 +1,4 @@
 name: LCBO Project
 markdown: redcarpet
 pygments: true
-exclude: ['node_modules']
+exclude: ['scraper', 'node_modules']

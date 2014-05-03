@@ -1,6 +1,7 @@
 import json
 import re
 import cgi
+import time
 
 json_data = open('items.json')
 data=json.load(json_data)
@@ -65,7 +66,7 @@ for c in data:
 
     apml = (float(percentage) * int(volumeR))/100
     apd = apml/float(price)
-    master[number] = [name, int(volumeR), float(price), float(percentage), apml, apd, cat1, cat2, cat3]
+    master[number] = [str(name), str(int(volumeR)).rjust(4), str("{0:.2f}".format(float(price))).rjust(7), str("{0:.2f}".format(float(percentage))).rjust(5), str("{0:.2f}".format(apml)).rjust(7), str("{0:.4f}".format(apd)).rjust(7), cat1, cat2, cat3]
     
 print(len(master))
 print(i)
@@ -73,9 +74,9 @@ print(j)
 
 html = '---\nlayout: default\n---\n\n\t\t var aDataSet = [\n'
 for key, value in master.items():
-    html += '\t\t\t[\'' +'<a href="http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '">' + str(key).replace('\'','\\\'') + '</a>\''
+    html += '\t\t\t[\'' +'<a href="http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '">' + str(key).zfill(6) + '</a>\''
     for v in value:
-        html += ', \'' + str(v).replace('\'','\\\'') + '\''
+        html += ', \'' + v.replace('\'','\\\'') + '\''
     html += '],\n'
 
 html = html[:-2]
@@ -83,3 +84,8 @@ html += '];'
 
 f = open('../index.html', 'w')
 f.write(html)
+f.close()
+
+f = open('../_includes/date.txt', 'w')
+f.write(time.strftime("%c"))
+f.close()
