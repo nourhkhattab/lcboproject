@@ -65,6 +65,29 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 	$('select').selectpicker();
         });
+	function setColWidths(){
+		$("th").css("padding","4px")
+		$("tr td:nth-child(1), th:nth-child(1)").css("width","67px");
+		$("tr td:nth-child(2), th:nth-child(2)").css("width","294px");
+		$("tr td:nth-child(3), th:nth-child(3)").css("width","82px");
+		$("tr td:nth-child(4), th:nth-child(4)").css("width","63px");
+		$("tr td:nth-child(5), th:nth-child(5)").css("width","71px");
+		$("tr td:nth-child(6), th:nth-child(6)").css("width","71px");
+		$("tr td:nth-child(7), th:nth-child(7)").css("width","97px");
+		$("tr td:nth-child(8), th:nth-child(8)").css("width","61px");
+		$("tr td:nth-child(9), th:nth-child(9)").css("width","122px");
+		$("tr td:nth-child(10), th:nth-child(10)").css("width","121px");
+	}
+	
+	$(window).click(setColWidths);	
+	setInterval(setColWidths,100);
+	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+	var observer = new MutationObserver(function(mutations, observer) {
+		setColWidths();
+	});
+	
+
     </script>  
   </head>
   <body>
