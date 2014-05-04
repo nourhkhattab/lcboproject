@@ -27,11 +27,8 @@ src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-$(window).ready(function(){
-$(".col-md-4").hide()
-$.get("dataset.json",function(aDataSet, textStatus, jqXHR){
-
-		$(".col-md-4").show()
+    {{ content }}
+	$(".col-md-4").show()
         var asInitVals =[];
         $(document).ready(function() {
 	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
@@ -89,8 +86,6 @@ $.get("dataset.json",function(aDataSet, textStatus, jqXHR){
 		setColWidths();
 	});
 	
-},"json");
-});
     </script>  
   </head>
   <body>
