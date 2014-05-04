@@ -72,17 +72,17 @@ print(len(master))
 print(i)
 print(j)
 
-html = '---\nlayout: default\n---\n\n\t\t var aDataSet = [\n'
+html = '[\n'
 for key, value in master.items():
-    html += '\t\t\t[\'' +'<a href="http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '">' + str(key).zfill(6) + '</a>\''
+    html += '\t[\"' +'<a href=\'http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '\'>' + str(key).zfill(6) + '</a>\"'
     for v in value:
-        html += ', \'' + v.replace('\'','\\\'') + '\''
+        html += ', \"' + v.replace('\'','\\\'') + '\"'
     html += '],\n'
 
 html = html[:-2]
 html += '];'
 
-f = open('../index.html', 'w')
+f = open('../dataset.json', 'w')
 f.write(html)
 f.close()
 
