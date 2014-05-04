@@ -27,70 +27,65 @@ src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-$(window).ready(function(){
-$(".col-md-4").hide()
-$.get("ajax.txt",function(aDataSet, textStatus, jqXHR){
-
+    {{ content }}
 	$(".col-md-4").show()
         var asInitVals =[];
         $(document).ready(function() {
-    $('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
-    $('#example').dataTable( {
-        "aaData": aDataSet,
-        "bAutoWidth":false,
-        "aoColumns": [
-        { "sTitle": "#", "bSearchable": false  },
-        { "sTitle": "Name", "bSearchable": true },
-        { "sTitle": "Vol (mL)"},
-        { "sTitle": "Price" },
-        { "sTitle": "Alc %" },
-        { "sTitle": "VPA (mL)" },
-        { "sTitle": "VPA/D (mL/$)"},
-        { "sTitle": "Type" },
-        { "sTitle": "Category"},
-        { "sTitle": "Sub-Category"},
-        ]
-    } ).yadcf([{
+	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
+	$('#example').dataTable( {
+	    "aaData": aDataSet,
+	    "bAutoWidth":false,
+	    "aoColumns": [
+	    { "sTitle": "#", "bSearchable": false  },
+	    { "sTitle": "Name", "bSearchable": true },
+	    { "sTitle": "Vol (mL)"},
+	    { "sTitle": "Price" },
+	    { "sTitle": "Alc %" },
+	    { "sTitle": "VPA (mL)" },
+	    { "sTitle": "VPA/D (mL/$)"},
+	    { "sTitle": "Type" },
+	    { "sTitle": "Category"},
+	    { "sTitle": "Sub-Category"},
+	    ]
+	} ).yadcf([{
         column_number: 7, filter_container_id : "f1", filter_type:"multi_select"
     }, {
         column_number: 8, filter_container_id : "f2", filter_type:"multi_select"
     }, {
         column_number: 9, filter_container_id : "f3", filter_type:"multi_select"
     }]);
-    var d = document.getElementById("yadcf-filter--example-7");
-    d.className = d.className + " sel1";
-    var d = document.getElementById("yadcf-filter--example-8");
-    d.className = d.className + " sel2";
-    var d = document.getElementById("yadcf-filter--example-9");
-    d.className = d.className + " sel3";
+	var d = document.getElementById("yadcf-filter--example-7");
+	d.className = d.className + " sel1";
+	var d = document.getElementById("yadcf-filter--example-8");
+	d.className = d.className + " sel2";
+	var d = document.getElementById("yadcf-filter--example-9");
+	d.className = d.className + " sel3";
 
 
-    $('select').selectpicker();
+	$('select').selectpicker();
         });
-    function setColWidths(){
-	$("th").css("padding","4px")
-	$("tr td:nth-child(1), th:nth-child(1)").css("width","67px");
-	$("tr td:nth-child(2), th:nth-child(2)").css("width","294px");
-	$("tr td:nth-child(3), th:nth-child(3)").css("width","82px");
-	$("tr td:nth-child(4), th:nth-child(4)").css("width","63px");
-	$("tr td:nth-child(5), th:nth-child(5)").css("width","71px");
-	$("tr td:nth-child(6), th:nth-child(6)").css("width","71px");
-	$("tr td:nth-child(7), th:nth-child(7)").css("width","97px");
-	$("tr td:nth-child(8), th:nth-child(8)").css("width","61px");
-	$("tr td:nth-child(9), th:nth-child(9)").css("width","122px");
-	$("tr td:nth-child(10), th:nth-child(10)").css("width","121px");
-    }
+	function setColWidths(){
+		$("th").css("padding","4px")
+		$("tr td:nth-child(1), th:nth-child(1)").css("width","67px");
+		$("tr td:nth-child(2), th:nth-child(2)").css("width","294px");
+		$("tr td:nth-child(3), th:nth-child(3)").css("width","82px");
+		$("tr td:nth-child(4), th:nth-child(4)").css("width","63px");
+		$("tr td:nth-child(5), th:nth-child(5)").css("width","71px");
+		$("tr td:nth-child(6), th:nth-child(6)").css("width","71px");
+		$("tr td:nth-child(7), th:nth-child(7)").css("width","97px");
+		$("tr td:nth-child(8), th:nth-child(8)").css("width","61px");
+		$("tr td:nth-child(9), th:nth-child(9)").css("width","122px");
+		$("tr td:nth-child(10), th:nth-child(10)").css("width","121px");
+	}
+	
+	$(window).click(setColWidths);	
+	setInterval(setColWidths,100);
+	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-    $(window).click(setColWidths);	
-    setInterval(setColWidths,100);
-    MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-
-    var observer = new MutationObserver(function(mutations, observer) {
-	setColWidths();
-    });
-
-},"json");
-});
+	var observer = new MutationObserver(function(mutations, observer) {
+		setColWidths();
+	});
+	
     </script>  
   </head>
   <body>
@@ -128,16 +123,13 @@ $.get("ajax.txt",function(aDataSet, textStatus, jqXHR){
     <div class="row"></div>
 
     <div id = "dynamic">
-	<div class="progress progress-striped active">
-	    <div class="progress-bar progress-bar-danger"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-		<span class="sr-only">Loading</span>
-	    </div>
-	</div>
+    	<h1>Loading...</h1>
+
     </div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as
-         needed -->	 
+         needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

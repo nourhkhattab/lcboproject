@@ -78,7 +78,6 @@ for key, value in master.items():
     for v in value:
         html += ', \'' + v.replace('\'','\\\'') + '\''
     html += '],\n'
-
 html = html[:-2]
 html += '];'
 
