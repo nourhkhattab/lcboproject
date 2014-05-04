@@ -27,9 +27,11 @@ src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-    {{ content }}
+$(window).ready(function(){
+$(".col-md-4").hide()
+$.get("dataset.json",function(aDataSet, textStatus, jqXHR){
 
-
+		$(".col-md-4").show()
         var asInitVals =[];
         $(document).ready(function() {
 	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
@@ -87,7 +89,8 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		setColWidths();
 	});
 	
-
+},"json");
+});
     </script>  
   </head>
   <body>
@@ -124,7 +127,10 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
     <div class="row"></div>
 
-    <div id = "dynamic"></div>
+    <div id = "dynamic">
+    	<h1>Loading...</h1>
+
+    </div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as
