@@ -35,6 +35,11 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	$('#example').dataTable( {
 	    "aaData": aDataSet,
 	    "bAutoWidth":false,
+	    "dom":'<"row"<"col-md-4" l><"pull-left col-md-4 col-md-offset-2 col-lg-offset-4 " f>> tip',
+	    "language":{
+		"search":"<h3>Search</h3>",
+		"lengthMenu":"<h3>Number Of Items</h3> _MENU_"
+	    },
 	    "aoColumns": [
 	    { "sTitle": "#", "bSearchable": false  },
 	    { "sTitle": "Name", "bSearchable": true },
