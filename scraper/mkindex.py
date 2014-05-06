@@ -3,7 +3,7 @@ import re
 import cgi
 import time
 
-json_data = open('items.json')
+json_data = open('lcbo/items.json')
 data=json.load(json_data)
 
 master = {}
@@ -74,10 +74,34 @@ print(j)
 
 html = '---\nlayout: default\n---\n\n\t\t var aDataSet = [\n'
 for key, value in master.items():
-    html += '\t\t\t[\'' +'<a href="http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '">' + str(key).zfill(6) + '</a>\''
+    html += '\t\t\t[\'' +'<a href="http://www.lcbo.com/lcbo-ear/lcbo/product/searchResults.do?ITEM_NUMBER=' + str(key).replace('\'','\\\'') + '">' + 'LCBO' + '</a>\''
     for v in value:
         html += ', \'' + v.replace('\'','\\\'') + '\''
     html += '],\n'
+
+beer_data = open('beer/beer.json')
+bdata = json.load(beer_data)
+for t in bdata:
+    vpa = (float(t['Alcohol']) * int(t['vol']))/100
+    vpad = vpa/float(t['price'])
+
+    html += '\t\t\t[\'' +'<a href="http://'+ t['link']+'"> Beer Store</a>\''
+    html += ', \'' + t['name'].replace('\'','\\\'') + '\''
+    html += ', \'' + str(t['vol']) + '\''
+    html += ', \'' + str(t['price']) + '\''
+    html += ', \'' + str("{0:.2f}".format(float(t['Alcohol']))) + '\''
+    html += ', \'' + str("{0:.2f}".format(vpa)) + '\''
+    html += ', \'' + str("{0:.4f}".format(vpad)) + '\''
+    html += ', \'Beer\''
+    html += ', \'' + t['Type'].replace('\'','\\\'') + '\''
+    if 'Style' in t:
+        html += ', \'' + t['Style'].replace('\'','\\\'') + '\''
+    elif 'Attributes' in t:
+        html += ', \'' + t['Attributes'].replace('\'','\\\'') + '\''
+    else:
+        html += ', \'' + 'N/A' + '\''
+    html += '],\n'
+
 html = html[:-2]
 html += '];'
 

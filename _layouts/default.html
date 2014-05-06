@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LCBO Project</title>
+    <title>Ontario Alcohol Database</title>
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		"lengthMenu":"<h3>Number Of Items</h3> _MENU_"
 	    },
 	    "aoColumns": [
-	    { "sTitle": "#", "bSearchable": false  },
+	    { "sTitle": "Link", "bSearchable": false  },
 	    { "sTitle": "Name", "bSearchable": true },
 	    { "sTitle": "Vol (mL)"},
 	    { "sTitle": "Price" },
@@ -95,13 +95,13 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   </head>
   <body>
   <div class = "container">
-    <h1>LCBO Project</h1>
+    <h1>Ontario Alcohol Database</h1>
     <br /> <!-- Bad style, Find alternative -->
     <p>To sort by multiple columns, hold down shift when clicking those columns</p> 
     <p>To filter by multiple categories, just click another after clicking the first one</p>
-    <p>VPA is Volume of Pure Alcohol</p>
-    <p>VPA/D is Volume of Pure Alcohol per Dollar (The bigger the number the more cost efficient)</p>
-    <p>Last Checked LCBO : {% include date.txt %}</p>
+    <h4>VPA is Volume of Pure Alcohol</h4>
+    <h4>VPA/D is Volume of Pure Alcohol per Dollar (The bigger the number the more cost efficient)</h4>
+    <p>Last Checked LCBO and Beer Store : {% include date.txt %}</p>
     <div class = "col-md-4">
 	<div class="row">
 	    <h3>Type</h3>

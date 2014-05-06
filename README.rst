@@ -1,14 +1,11 @@
 ======
-LCBO Scraper The Website
+Ontario Alcohol Database The Website
 ======
 
 This is a scraper that finds all drinks on the lcbo website and stores it along with its price, alcohol content and alcohol content price ratio.
 
 Todo
 =======
-* add filters for categories
-* find bugs
-* find a way to update regularly
-* add beer store and wine rack
-* provide support for updating
-
+* Add wine rack
+* Fix multiple categories on Beer Store products
+* Find a way to update regularly
