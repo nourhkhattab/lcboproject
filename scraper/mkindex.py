@@ -1,8 +1,17 @@
 import json
+import os
 import re
 import cgi
 import time
 
+os.chdir("beer")
+os.system("scrapy crawl -L INFO chug -o beer.json -t json")
+os.system("sleep 10")
+os.chdir("../lcbo")
+os.system("scrapy crawl -L INFO alcoholic-spider -o items.json -t json")
+os.system("sleep 10")
+os.chdir("..")
+os.system("sleep 5")
 json_data = open('lcbo/items.json')
 data=json.load(json_data)
 
@@ -47,8 +56,10 @@ for c in data:
         percentage = re.findall('[\d\.]*(?=[%])', s)[2]
 
     m = re.search('(?<=\$ )[\d\.]*', s)
-    price = cgi.escape(m.group(0))
-
+    try:
+        price = cgi.escape(m.group(0))
+    except AttributeError:
+        continue
     m = re.search('(Wine|Spirits|Beer|Coolers and Cocktails|Cider)', s)
     cat1 = cgi.escape(m.group(0))
 
@@ -86,7 +97,7 @@ for t in bdata:
     vpad = vpa/float(t['price'])
 
     html += '\t\t\t[\'' +'<a href="http://'+ t['link']+'"> Beer Store</a>\''
-    html += ', \'' + t['name'].replace('\'','\\\'') + '\''
+    html += ', \'' + t['name'].replace('\'','\\\'').replace('\r','') + '\''
     html += ', \'' + str(t['vol']) + '\''
     html += ', \'' + str(t['price']) + '\''
     html += ', \'' + str("{0:.2f}".format(float(t['Alcohol']))) + '\''
