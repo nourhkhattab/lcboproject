@@ -48,6 +48,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		"lengthMenu":"<h3>Number Of Items</h3> _MENU_"
 
 	    },
+			"processing": true,
 	    "aoColumns": [
 	    { "sTitle": "Link", "bSearchable": false  },
 	    { "sTitle": "Name", "bSearchable": true },
@@ -113,6 +114,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	function kimonoCallback(data) {
 		console.log(data);
 		var table = $('#example').DataTable();
+		var a
 		table.row.add(JSON.parse(JSON.stringify(data["results"]["Data"]))).draw();
 		console.log(JSON.stringify(data["results"]["Data"]))
 	}
