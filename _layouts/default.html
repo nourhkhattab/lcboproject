@@ -101,8 +101,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	function kimonoCallback(data) {
 		console.log(data);
 		var table = $('#example').DataTable();
-		console.log(data["results"]["Data"]);
-		table.row.add(data["results"]["Data"]).draw();
+		table.row.add(JSON.stringify(data["results"]["Data"])).draw();
 	}
 	
     </script>  
