@@ -55,6 +55,8 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    { "sTitle": "Vol (mL)"},
 	    { "sTitle": "Price" },
 	    { "sTitle": "Alc %" },
+			{ "sTitle": "Format" },
+			{ "sTitle": "Sugar Content" },
 	    { "sTitle": "VPA (mL)" },
 	    { "sTitle": "VPA/D (mL/$)"},
 	    { "sTitle": "Type" },
@@ -62,11 +64,11 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    { "sTitle": "Sub-Category"},
 	    ]
 	} ).yadcf([{
-        column_number: 7, filter_container_id : "f1", filter_type:"multi_select"
+        column_number: 9, filter_container_id : "f1", filter_type:"multi_select"
     }, {
-        column_number: 8, filter_container_id : "f2", filter_type:"multi_select"
+        column_number: 10, filter_container_id : "f2", filter_type:"multi_select"
     }, {
-        column_number: 9, filter_container_id : "f3", filter_type:"multi_select"
+        column_number: 11, filter_container_id : "f3", filter_type:"multi_select"
     }]);
 	var d = document.getElementById("yadcf-filter--example-7");
 	d.className = d.className + " sel1";
@@ -78,39 +80,19 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 	$('select').selectpicker();
         });
-	function setColWidths(){
-		$("th").css("padding","4px")
-		$("tr td:nth-child(1), th:nth-child(1)").css("width","67px");
-		$("tr td:nth-child(2), th:nth-child(2)").css("width","294px");
-		$("tr td:nth-child(3), th:nth-child(3)").css("width","82px");
-		$("tr td:nth-child(4), th:nth-child(4)").css("width","63px");
-		$("tr td:nth-child(5), th:nth-child(5)").css("width","71px");
-		$("tr td:nth-child(6), th:nth-child(6)").css("width","71px");
-		$("tr td:nth-child(7), th:nth-child(7)").css("width","97px");
-		$("tr td:nth-child(8), th:nth-child(8)").css("width","61px");
-		$("tr td:nth-child(9), th:nth-child(9)").css("width","122px");
-		$("tr td:nth-child(10), th:nth-child(10)").css("width","121px");
-	}
-	
-	$(window).click(setColWidths);	
-	setInterval(setColWidths,100);
-	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-
-	var observer = new MutationObserver(function(mutations, observer) {
-		setColWidths();
-	});
 	function kimonoCallback(data) {
 		console.log(data);
 		var table = $('#example').DataTable();
 		for (i in data["results"]["Data"]){
 			var item = data["results"]["Data"][i];
 			var cat3 = "";
+			if (item["Amount"] == ""){continue;}
 			if (typeof item["cat3"] === 'string'){
-				cat3 = item["cat3"];
+				cat3 = "N/A";
 			} else {
 				cat3 = item["cat3"]["text"];
 			}
-			table.row.add([item["ID"],item["Name"],item["Amount"],item["Price"],item["Percent"],item["Sugar"],item["Format"],item["cat1"],item["cat2"],cat3]);
+			table.row.add([item["ID"],item["Name"],item["Amount"],item["Price"].substring(1),item["Percent"],item["Format"],item["Sugar"],0,0,item["cat1"],item["cat2"],cat3]);
 	}
 	table.draw();
 }
