@@ -42,25 +42,30 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         $(document).ready(function() {
 	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
 	$('#example').dataTable( {
-	    "aaData": aDataSet,
-	    "bAutoWidth":false,
+		"processing": true,
+	    "ajax":{"url":"https://www.kimonolabs.com/api/9esod5lg?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY",
+			    "crossDomain":true,
+					"dataSrc":"results",
+					    "dataType":"jsonp"}
+			"bAutoWidth":false,
 	    "dom":'<"row"<"col-md-4" l><"pull-left col-md-4 col-md-offset-2 col-lg-offset-4 " f>> tip',
 	    "language":{
 		"search":"<h3>Search</h3>",
 		"lengthMenu":"<h3>Number Of Items</h3> _MENU_"
-	    },
-	    "aoColumns": [
-	    { "sTitle": "Link", "bSearchable": false  },
-	    { "sTitle": "Name", "bSearchable": true },
-	    { "sTitle": "Vol (mL)"},
-	    { "sTitle": "Price" },
-	    { "sTitle": "Alc %" },
-	    { "sTitle": "VPA (mL)" },
-	    { "sTitle": "VPA/D (mL/$)"},
-	    { "sTitle": "Type" },
-	    { "sTitle": "Category"},
-	    { "sTitle": "Sub-Category"},
-	    ]
+}
+//	    },
+//	    "aoColumns": [
+//	    { "sTitle": "Link", "bSearchable": false  },
+//	    { "sTitle": "Name", "bSearchable": true },
+//	    { "sTitle": "Vol (mL)"},
+//	    { "sTitle": "Price" },
+//	    { "sTitle": "Alc %" },
+//	    { "sTitle": "VPA (mL)" },
+//	    { "sTitle": "VPA/D (mL/$)"},
+//	    { "sTitle": "Type" },
+//	    { "sTitle": "Category"},
+//	    { "sTitle": "Sub-Category"},
+//	    ]
 	} ).yadcf([{
         column_number: 7, filter_container_id : "f1", filter_type:"multi_select"
     }, {
@@ -99,6 +104,9 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	var observer = new MutationObserver(function(mutations, observer) {
 		setColWidths();
 	});
+	function kimonoCallback(data) {
+		console.log(data);
+	}
 	
     </script>  
   </head>
