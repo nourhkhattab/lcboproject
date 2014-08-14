@@ -8,4 +8,4 @@ Todo
 =======
 * Add wine rack
 * Fix multiple categories on Beer Store products
-* Find a way to update regularly
+* Fix sugar content and discontinued items

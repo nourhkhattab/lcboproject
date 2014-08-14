@@ -7,14 +7,23 @@
     <title>Ontario Alcohol Database</title>
 
     <!-- Bootstrap -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
-    <link href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" 
+rel="stylesheet">
+    <link 
+href="bower_components/bootstrap-select/bootstrap-select.min.css" 
+rel="stylesheet">
+    <link 
+href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" 
+rel="stylesheet">
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new 
+Date();a=s.createElement(o),
+  
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 	ga('create', 'UA-50726409-1', 'nourhkhattab.github.io');
 	ga('send', 'pageview');
@@ -22,13 +31,18 @@
     </script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/jquery.dataTables.yadcf.js"></script>
-    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
-    <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-    <script src="bower_components/bootstrap-select/bootstrap-select.min.js"></script>
+    <script 
+src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script 
+src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script 
+src="bower_components/bootstrap-select/bootstrap-select.min.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and 
+media
          queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via 
+file:// -->
     <!--[if lt IE 9]>
       <script
 src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -40,9 +54,11 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	$(".col-md-4").show()
         var asInitVals =[];
         $(document).ready(function() {
-	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
+	$('#dynamic').html( '<table class="table table-bordered" 
+id="example"></table>' );
 	$('#example').dataTable( {
-	    "dom":'<"row"<"col-md-4" l><"pull-left col-md-4 col-md-offset-2 col-lg-offset-4 " f>> tip',
+	    "dom":'<"row"<"col-md-4" l><"pull-left col-md-4 
+col-md-offset-2 col-lg-offset-4 " f>> tip',
 	    "language":{
 		"search":"<h3>Search</h3>",
 		"lengthMenu":"<h3>Number Of Items</h3> _MENU_"
@@ -64,17 +80,20 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    { "sTitle": "Sub-Category"},
 	    ]
 	} ).yadcf([{
-        column_number: 9, filter_container_id : "f1", filter_type:"multi_select"
+        column_number: 9, filter_container_id : "f1", 
+filter_type:"multi_select"
     }, {
-        column_number: 10, filter_container_id : "f2", filter_type:"multi_select"
+        column_number: 10, filter_container_id : "f2", 
+filter_type:"multi_select"
     }, {
-        column_number: 11, filter_container_id : "f3", filter_type:"multi_select"
+        column_number: 11, filter_container_id : "f3", 
+filter_type:"multi_select"
     }]);
-	var d = document.getElementById("yadcf-filter--example-7");
-	d.className = d.className + " sel1";
-	var d = document.getElementById("yadcf-filter--example-8");
-	d.className = d.className + " sel2";
 	var d = document.getElementById("yadcf-filter--example-9");
+	d.className = d.className + " sel1";
+	var d = document.getElementById("yadcf-filter--example-10");
+	d.className = d.className + " sel2";
+	var d = document.getElementById("yadcf-filter--example-11");
 	d.className = d.className + " sel3";
 
 
@@ -101,102 +120,122 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			} else {
 				cat3 = item["cat3"]["text"];
 			}
-			table.row.add([item["ID"],item["Name"],ml,price,alc,item["Format"],sugar,VPA,VPAD,item["cat1"],item["cat2"],cat3]);
+			
+table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID'].substring(item['ID'].indexOf(": ") + 1)+'">LCBO</a>',item["Name"],ml,price,alc,item["Format"],sugar,VPA,VPAD,item["cat1"],item["cat2"],cat3]);
 	}
 	table.draw();
 }
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/9esod5lg?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/9esod5lg?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/9vva4xpm?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/9vva4xpm?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/betino0q?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/betino0q?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/agaljzj0?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/agaljzj0?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/cafq3euu?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/cafq3euu?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/a3r0h71u?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/a3r0h71u?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/5r3xh6m2?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/5r3xh6m2?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/d61vbgmu?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/d61vbgmu?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/9lgg74j8?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/9lgg74j8?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/bf2uqg1y?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/bf2uqg1y?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/5ptfs05i?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/5ptfs05i?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/8ga1lyza?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/8ga1lyza?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/7cnn4ru4?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/7cnn4ru4?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/cz8xfpgg?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/cz8xfpgg?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/c6ibdzfa?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/c6ibdzfa?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/9xvt5ghk?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/9xvt5ghk?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/b0ld0lze?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/b0ld0lze?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/b2rp876o?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/b2rp876o?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
 $.ajax({
-    "url":"https://www.kimonolabs.com/api/bpi0gj10?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
+    
+"url":"https://www.kimonolabs.com/api/bpi0gj10?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
     "crossDomain":true,
     "dataType":"jsonp"
 });
@@ -208,11 +247,15 @@ $.ajax({
   <div class = "container">
     <h1>Ontario Alcohol Database</h1>
     <br /> <!-- Bad style, Find alternative -->
-		<h3>Currently moving to a new system for more recent results, because of that lcbo is coming soon.</h3>
-    <p>To sort by multiple columns, hold down shift when clicking those columns</p> 
-    <p>To filter by multiple categories, just click another after clicking the first one</p>
+		<h3>Currently moving to a new system for more recent 
+results, because of that Beer Store is coming soon. Also note some items are discontinued :(</h3>
+    <p>To sort by multiple columns, hold down shift when clicking those 
+columns</p> 
+    <p>To filter by multiple categories, just click another after 
+clicking the first one</p>
     <h4>VPA is Volume of Pure Alcohol</h4>
-    <h4>VPA/D is Volume of Pure Alcohol per Dollar (The bigger the number the more cost efficient)</h4>
+    <h4>VPA/D is Volume of Pure Alcohol per Dollar (The bigger the 
+number the more cost efficient)</h4>
     <div class = "col-md-4">
 	<div class="row">
 	    <h3>Type</h3>
@@ -246,8 +289,10 @@ $.ajax({
     </div>
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as
+    <!-- Include all compiled plugins (below), or include individual 
+files as
          needed -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script 
+src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
