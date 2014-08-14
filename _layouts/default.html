@@ -54,11 +54,9 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	$(".col-md-4").show()
         var asInitVals =[];
         $(document).ready(function() {
-	$('#dynamic').html( '<table class="table table-bordered" 
-id="example"></table>' );
+	$('#dynamic').html( '<table class="table table-bordered" id="example"></table>' );
 	$('#example').dataTable( {
-	    "dom":'<"row"<"col-md-4" l><"pull-left col-md-4 
-col-md-offset-2 col-lg-offset-4 " f>> tip',
+	    "dom":'<"row"<"col-md-4" l><"pull-left col-md-4 col-md-offset-2 col-lg-offset-4 " f>> tip',
 	    "language":{
 		"search":"<h3>Search</h3>",
 		"lengthMenu":"<h3>Number Of Items</h3> _MENU_"
@@ -121,7 +119,7 @@ filter_type:"multi_select"
 				cat3 = item["cat3"]["text"];
 			}
 			
-table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID'].substring(item['ID'].indexOf(": ") + 1)+'">LCBO</a>',item["Name"],ml,price,alc,item["Format"],sugar,VPA,VPAD,item["cat1"],item["cat2"],cat3]);
+table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID'].substring(item['ID'].indexOf(': ') + 1)+'">LCBO</a>',item["Name"],ml,price,alc,item["Format"],sugar,VPA,VPAD,item["cat1"],item["cat2"],cat3]);
 	}
 	table.draw();
 }
