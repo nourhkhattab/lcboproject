@@ -91,12 +91,17 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 				sugar = item["Sugar"];
 			}
 			if (item["Percent"] == ""){continue;}
+			var alc = Number(item["Percent"]);
+			var ml = Number(item["Amount"]);
+			var price = Number(item["Price"].substring(1));
+			var VPA = alc * ml * 0.01;
+			var VPAD = VPA / price;
 			if (typeof item["cat3"] === 'string'){
 				cat3 = "N/A";
 			} else {
 				cat3 = item["cat3"]["text"];
 			}
-			table.row.add([item["ID"],item["Name"],item["Amount"],item["Price"].substring(1),item["Percent"],item["Format"],sugar,0,0,item["cat1"],item["cat2"],cat3]);
+			table.row.add([item["ID"],item["Name"],ml,price,alc,item["Format"],sugar,VPA,VPAD,item["cat1"],item["cat2"],cat3]);
 	}
 	table.draw();
 }
