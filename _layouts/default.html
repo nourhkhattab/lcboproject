@@ -86,13 +86,17 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		for (i in data["results"]["Data"]){
 			var item = data["results"]["Data"][i];
 			var cat3 = "";
-			if (item["Amount"] == ""){continue;}
+			var sugar = 0;
+			if (!isNaN(item["Sugar"])){
+				sugar = item["Sugar"];
+			}
+			if (item["Percent"] == ""){continue;}
 			if (typeof item["cat3"] === 'string'){
 				cat3 = "N/A";
 			} else {
 				cat3 = item["cat3"]["text"];
 			}
-			table.row.add([item["ID"],item["Name"],item["Amount"],item["Price"].substring(1),item["Percent"],item["Format"],item["Sugar"],0,0,item["cat1"],item["cat2"],cat3]);
+			table.row.add([item["ID"],item["Name"],item["Amount"],item["Price"].substring(1),item["Percent"],item["Format"],sugar,0,0,item["cat1"],item["cat2"],cat3]);
 	}
 	table.draw();
 }
