@@ -59,7 +59,19 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    { "sTitle": "Type" },
 	    { "sTitle": "Category"},
 	    { "sTitle": "Sub-Category"},
-	    ]
+	    ],
+			"columns": [
+				{"data":"ID"},
+				{"data":"Name"},
+				{"data":"Amount"},
+				{"data":"Price"},
+				{"data":"Percent"},
+				{"data":"Sugar"},
+				{"data":"Format"},
+				{"data":"cat1"},
+				{"data":"cat2"},
+				{"data":"cat3"}
+			]
 	} ).yadcf([{
         column_number: 7, filter_container_id : "f1", filter_type:"multi_select"
     }, {
@@ -102,6 +114,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		console.log(data);
 		var table = $('#example').DataTable();
 		table.row.add(JSON.parse(JSON.stringify(data["results"]["Data"]))).draw();
+		console.log(JSON.stringify(data["results"]["Data"]))
 	}
 	
     </script>  
