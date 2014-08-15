@@ -9,5 +9,6 @@
   },
   "_source": "git://github.com/DataTables/Plugins.git",
   "_target": "*",
-  "_originalSource": "datatables-plugins"
+  "_originalSource": "datatables-plugins",
+  "_direct": true
 }
