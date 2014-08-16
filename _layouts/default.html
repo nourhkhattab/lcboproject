@@ -37,8 +37,6 @@ src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
 src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <script 
 src="bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script 
-src="bower_components/datatables-plugins/sorting/natural.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and 
 media
@@ -52,6 +50,10 @@ src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
+		function zeroPad(num, places) {
+			  var zero = places - num.toString().length + 1;
+				  return Array(+(zero > 0 && zero)).join("0") + num;
+		}
     {{ content }}
         var asInitVals =[];
         $(document).ready(function() {
@@ -72,7 +74,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    { "title": "Product Name<br>.", "bSearchable": true},
 	    { "title": "Price<br>(CAD)", "contentPadding": "00000.00"},
 	    { "title": "Vol<br>(mL)", "contentPadding": "0000.00" },
-	    { "title": "Format<br>.", "type":"natural", "contentPadding": "bagnbox" },
+	    { "title": "Format<br>.", "contentPadding": "bagnbox" },
 			{ "title": "Alcohol<br>(%)", "contentPadding": "00.0" },
 			{ "title": "Sugar<br>(g/L)", "contentPadding": "000" },
 	    { "title": "VPA<br>(mL)", "contentPadding": "0000.00" },
@@ -105,7 +107,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			var num = Number(item["Num"]);
 			if (isNaN(num)){num = Number(item["Num"]["text"]);}
 			if (num == 0){num = 1;};
-			var form = String(num) + " " + item["Format"];
+			var form = zeroPad(num, 2) + " " + item["Format"];
 			if (num > 1){form = form + "s";};
 			var alc = Number(item["Percent"]);
 			var ml = Number(item["Amount"]) * num;
