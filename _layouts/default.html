@@ -120,9 +120,10 @@ table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID']
 	}
 }
 	function kimonoCallbackB(data) {
+		console.log(data);
 		var table = $('#example').DataTable();
 		for (i in data["results"]){
-			var info = data["results"][i]["Info"]
+			var info = data["results"][i][data["results"][i]["Info"]];
 			for (j in data["results"][i]["Items"]){
 				var item = data["results"][i]["Items"][j];
 				var num = Number(item["number"]);
