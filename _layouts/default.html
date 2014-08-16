@@ -91,17 +91,17 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			var cat3 = "";
 			var sugar = 0;
 			if (typeof item["cat3"] === 'string'){
-				if (!isNaN(item["Sugar"])){
-					sugar = item["Sugar"];
-				}
+					sugart = item["Sugar"];
 			} else {
-				sugar = item["Sugar"]["text"];
-				console.log(item["Sugar"]);
+				sugart = item["Sugar"]["text"];
 			};
+			if (!isNaN(sugart)){
+				sugar = Number(sugart);
+			}
 			if (!(item["Discontinued"] == "")){continue;}
 			if (item["Percent"] == ""){continue;}
 			var num = Number(item["Num"]);
-			if (isNaN(num)){num = Number(item["Num"]["href"]);}
+			if (isNaN(num)){num = Number(item["Num"]["text"]);}
 			if (num == 0){num = 1;};
 			var form = String(num) + " " + item["Format"];
 			if (num > 1){form = form + "s";};
