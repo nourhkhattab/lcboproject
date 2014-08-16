@@ -96,13 +96,13 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 				}
 			} else {
 				sugar = item["Sugar"]["text"];
-				console.log(sugar);
+				console.log(item["Sugar"]);
 			};
 			if (!(item["Discontinued"] == "")){continue;}
 			if (item["Percent"] == ""){continue;}
 			var num = Number(item["Num"]);
+			if (isNaN(num)){num = Number(item["Num"]["href"]);}
 			if (num == 0){num = 1;};
-			if (isNaN(num)){console.log(num, item["Num"]);}
 			var form = String(num) + " " + item["Format"];
 			if (num > 1){form = form + "s";};
 			var alc = Number(item["Percent"]);
@@ -121,7 +121,6 @@ table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID']
 }
 
 function chain(ar){
-	console.log(ar);
 $('.progress-bar').css("width",String(((20-ar.length)/20)*100)+'%');
 	if (ar[0] == null){
 		$('#example').DataTable().draw();
