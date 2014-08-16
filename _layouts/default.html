@@ -95,7 +95,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			} else {
 				sugart = item["Sugar"]["text"];
 			};
-			if (!isNaN(sugart)){
+			if (!isNaN(sugart) && !(sugart == "")){
 				sugar = Number(sugart);
 			}
 			if (!(item["Discontinued"] == "")){continue;}
