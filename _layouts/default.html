@@ -90,12 +90,12 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			var item = data["results"]["Data"][i];
 			var cat3 = "";
 			var sugar = 0;
-			if (typeof item["cat3"] === 'string'){
+			if (typeof item["Sugar"] === 'string'){
 					sugart = item["Sugar"];
 			} else {
 				sugart = item["Sugar"]["text"];
 			};
-			if (!isNaN(sugart) && !(sugart == "")){
+			if (!isNaN(sugart)){
 				sugar = Number(sugart);
 			}
 			if (!(item["Discontinued"] == "")){continue;}
@@ -119,6 +119,25 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID'].substring(item['ID'].indexOf(': ') + 2)+'">LCBO</a><br><br><a href="http://www.foodanddrink.ca/lcbo-ear/lcbo/product/inventory/searchResults.do?language=EN&itemNumber='+item['ID'].substring(item['ID'].indexOf(': ') + 2)+'">Locations</a>',item["Name"],price.toFixed(2),ml,form,alc.toFixed(1),sugar,VPA.toFixed(2),VPAD.toFixed(2),item["cat1"],item["cat2"],cat3]);
 	}
 }
+	function kimonoCallbackB(data) {
+		var table = $('#example').DataTable();
+		for (i in data["results"]){
+			var info = data["results"][i]["Info"]
+			for (j in data["results"][i]["Items"]){
+				var item = data["results"][i]["Items"][j];
+				var num = Number(item["number"]);
+				var form = String(num) + " " + item["format"];
+				if (num > 1){form = form + "s";};
+				var alc = Number(info["Content"].replace('%',''));
+				var ml = Number(item["Size"]) * num;
+				var price = Number(item["Price"]);
+				var VPA = alc * ml * 0.01;
+				var VPAD = VPA / price;
+				
+				table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+data["results"][i]["url"]+'">Beer Store</a><br><br>',info["Name"],price.toFixed(2),ml,form,alc.toFixed(1),'',VPA.toFixed(2),VPAD.toFixed(2),"Beer & Cider",info["cat1"],info["Cat 2"]);
+			}
+		}
+	}
 
 function chain(ar){
 $('.progress-bar').css("width",String(((20-ar.length)/20)*100)+'%');
@@ -150,7 +169,7 @@ $('.tablec').show();
 			"crossDomain":true,
 			"type": "GET",
 			"dataType":"jsonp",
-			"cache" : "true"
+			"cache" : true
 		}).complete(function(){chain(ar.slice(1));});
 	}
 }
@@ -174,6 +193,13 @@ var arr =["https://www.kimonolabs.com/api/9esod5lg?apikey=7bNaaPvwjfAsdPQjJhn7d1
    "https://www.kimonolabs.com/api/b2rp876o?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback",
    "https://www.kimonolabs.com/api/bpi0gj10?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&callback=kimonoCallback"];
 chain(arr);
+$.ajax({
+	    "url":"https://www.kimonolabs.com/api/7pa86dtm?apikey=7bNaaPvwjfAsdPQjJhn7d1SBSrsARtnY&kimbypage=1&callback=kimonoCallbackB",
+			    "crossDomain":true,
+					"type": "GET",
+					"cache": true,
+					    "dataType":"jsonp"
+});
     </script>  
   </head>
   <body>
