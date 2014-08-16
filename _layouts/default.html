@@ -95,7 +95,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			} else {
 				sugart = item["Sugar"]["text"];
 			};
-			if (!isNaN(sugart)){
+			if (!isNaN(sugart) && !(sugart == "")){
 				sugar = Number(sugart);
 			}
 			if (!(item["Discontinued"] == "")){continue;}
@@ -120,7 +120,6 @@ table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID']
 	}
 }
 	function kimonoCallbackB(data) {
-		console.log(data);
 		var table = $('#example').DataTable();
 		for (i in data["results"]){
 			var info = data["results"][i]["Info"][0];
@@ -207,8 +206,6 @@ $.ajax({
   <div class = "container">
     <h1>Ontario Alcohol Database</h1>
     <br /> <!-- Bad style, Find alternative -->
-		<h3>Currently moving to a new system for more recent 
-results, because of that Beer Store is coming soon. Also note some items are discontinued :(</h3>
     <p>To sort by multiple columns, hold down shift when clicking those 
 columns</p> 
     <p>To filter by multiple categories, just click another after 
