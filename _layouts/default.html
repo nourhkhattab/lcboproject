@@ -138,7 +138,7 @@ table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID']
 				var VPA = alc * ml * 0.01;
 				var VPAD = VPA / price;
 				
-				table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+data["results"][i]["url"]+'">Beer<br>Store</a><br><a href="http://www.lcbo.com/lcbo/search?searchTerm='+data["results"][i]["url"]+'">Locations</a>',info["Name"],price.toFixed(2),ml,form,alc.toFixed(1),'',VPA.toFixed(2),VPAD.toFixed(2),"Beer & Cider",info["cat1"],info["Cat 2"]]);
+				table.row.add(['<a href="'+data["results"][i]["url"]+'">Beer<br>Store</a><br><a href="'+data["results"][i]["url"]+'">Locations</a>',info["Name"],price.toFixed(2),ml,form,alc.toFixed(1),'',VPA.toFixed(2),VPAD.toFixed(2),"Beer & Cider",info["cat1"],info["Cat 2"]]);
 			}
 		}
 	}
