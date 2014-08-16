@@ -130,7 +130,7 @@ table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID']
 			for (j in data["results"][i]["Items"]){
 				var item = data["results"][i]["Items"][j];
 				var num = Number(item["number"]);
-				var form = String(num) + " " + item["format"];
+				var form = zeroPad(num, 2) + " " + item["format"];
 				if (num > 1){form = form + "s";};
 				var alc = Number(info["Content"].replace('%',''));
 				var ml = Number(item["Size"]) * num;
