@@ -120,7 +120,7 @@ src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 			}
 		
 			
-table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID'].substring(item['ID'].indexOf(': ') + 2, item['ID'].indexOf(' |'))+'">LCBO</a><br><br><a href="http://www.foodanddrink.ca/lcbo-ear/lcbo/product/inventory/searchResults.do?language=EN&itemNumber='+item['ID'].substring(item['ID'].indexOf(': ') + 2)+'">Locations</a>',item["Name"],price.toFixed(2),ml,form,alc.toFixed(1),sugar,VPA.toFixed(2),VPAD.toFixed(2),item["cat1"],item["cat2"],cat3]);
+table.row.add(['<a href="http://www.lcbo.com/lcbo/search?searchTerm='+item['ID'].substring(item['ID'].indexOf('#: ') + 2, item['ID'].indexOf('&nbsp;'))+'">LCBO</a><br><br><a href="http://www.foodanddrink.ca/lcbo-ear/lcbo/product/inventory/searchResults.do?language=EN&itemNumber='+item['ID'].substring(item['ID'].indexOf(': ') + 2)+'">Locations</a>',item["Name"],price.toFixed(2),ml,form,alc.toFixed(1),sugar,VPA.toFixed(2),VPAD.toFixed(2),item["cat1"],item["cat2"],cat3]);
 	}
 }
 	function kimonoCallbackB(data) {
